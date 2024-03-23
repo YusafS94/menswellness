@@ -3,9 +3,22 @@
 function yusaf_theme_support() {
     // Adds dynamic title tag support
     add_theme_support('title-tag');
+    add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme','yusaf_theme_support');
+
+function yusaf_menus() {
+    $locations = array(
+        'primary' => "Desktop Primary Left Sidebar",
+        'footer' => "Footer Menu Items"
+    );
+
+    register_nav_menus($locations);
+}
+
+add_action('init','yusaf_menus');
 
 function yusaf_register_styles(){
     $version = wp_get_theme()->get('Version');
@@ -27,5 +40,65 @@ function yusaf_register_scripts(){
 }
 
 add_action('wp_enqueue_scripts', 'yusaf_register_scripts');
+
+function yusaf_widget_areas(){
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            // 'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            'before_widget' => '',
+            // 'after_widget' => '</ul>',
+            'after_widget' => '',
+            'name' => 'Sidebar Area',
+            'id' => 'sidebar-1',
+            'description' => 'Sidebar Widget Area'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            // 'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            'before_widget' => '',
+            // 'after_widget' => '</ul>',
+            'after_widget' => '',
+            'name' => 'Footer Widget Area 1',
+            'id' => 'footer-1',
+            'description' => 'Footer Widget Area'
+        )
+    );
+
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            // 'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            'before_widget' => '',
+            // 'after_widget' => '</ul>',
+            'after_widget' => '',
+            'name' => 'Footer Widget Area 2',
+            'id' => 'footer-2',
+            'description' => 'Footer Widget Area'
+        )
+    );
+    register_sidebar(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            // 'before_widget' => '<ul class="social-list list-inline py-3 mx-auto">',
+            'before_widget' => '',
+            // 'after_widget' => '</ul>',
+            'after_widget' => '',
+            'name' => 'Footer Widget Area 3',
+            'id' => 'footer-3',
+            'description' => 'Footer Widget Area'
+        )
+    );
+}
+
+add_action('widgets_init', 'yusaf_widget_areas');
+
 
 ?>
