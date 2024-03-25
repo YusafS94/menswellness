@@ -156,6 +156,21 @@ h6 {
   font-weight: bold;
 }
 
+.sub-nav-item {
+  list-style-type: none;
+  /* margin-left: -40px; */
+}
+
+.dropdown {
+  height: 24px;
+  overflow: hidden;
+}
+
+.dropdown:hover {
+  height: auto;
+  overflow: visible;
+}
+
 .header .nav-item.active a {
   color: rgba(0, 0, 0, 0.5);
 }
